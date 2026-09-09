@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHAMNAN FOOD — Delicious Food, Delivered to You</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo">
+        🍔 CHAMNAN <span>FOOD</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="iNDEX.html" class="nav-link active">Home</a></li>
+          <li><a href="menu.html" class="nav-link">Menu</a></li>
+          <li><a href="#promotions" class="nav-link">Promotions</a></li>
+          <li><a href="#about" class="nav-link">About Us</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="Traking.HTML" class="nav-link">Track Order</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="cart-icon-btn open-cart-trigger" aria-label="Cart">
+          🛒 <span class="cart-badge cart-count-badge">0</span>
+        </button>
+        <button class="menu-toggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-wrapper">
+      <div class="hero-content">
+        <h1>ម្ហូបឆ្ងាញ់ៗ <span>រង់ចាំអ្នក!</span></h1>
+        <p>កម្មង់ម្ហូបដែលអ្នកចូលចិត្ត ងាយស្រួល និងរហ័ស ជាមួយសេវាកម្មដឹកជញ្ជូនរហ័សទាន់ចិត្តដល់មុខផ្ទះ។</p>
+        <div class="hero-actions">
+          <a href="aminoder.HTML" class="btn btn-primary">កម្មង់ឥឡូវនេះ</a>
+          <a href="menu.html" class="btn btn-outline">មើលមុខម្ហូប</a>
+        </div>
+      </div>
+      <div class="hero-image-box">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&q=80" alt="Delicious Food Feast">
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories">
+    <div class="container">
+      <div class="section-title">
+        <h2>ប្រភេទម្ហូបពេញនិយម</h2>
+        <p>ជ្រើសរើសប្រភេទម្ហូបដែលអ្នកចូលចិត្តខាងក្រោម</p>
+      </div>
+      <div class="category-list">
+        <a href="menu.html?cat=all" class="cat-btn active">🍽️ ទាំងអស់</a>
+        <a href="menu.html?cat=burger" class="cat-btn">🍔 Burger</a>
+        <a href="menu.html?cat=pizza" class="cat-btn">🍕 Pizza</a>
+        <a href="menu.html?cat=noodle" class="cat-btn">🍜 Noodle</a>
+        <a href="menu.html?cat=rice" class="cat-btn">🍚 Rice</a>
+        <a href="menu.html?cat=chicken" class="cat-btn">🍗 Chicken</a>
+        <a href="menu.html?cat=drinks" class="cat-btn">🥤 Drinks</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotions Section -->
+  <section id="promotions" class="hero" style="background: var(--surface);">
+    <div class="container">
+      <div class="section-title">
+        <h2>ប្រូម៉ូសិនពិសេសប្រចាំសប្តាហ៍</h2>
+        <p>ការផ្តល់ជូនពិសេសដែលអ្នកមិនអាចរំលងបាន</p>
+      </div>
+      <div class="promotions-grid">
+        <div class="promo-card promo-1">
+          <span class="badge" style="background:rgba(255,255,255,0.3); margin-bottom:10px;">HOT DEAL</span>
+          <h3>🔥 Weekend Deal</h3>
+          <p style="margin: 10px 0 20px;">បញ្ចុះតម្លៃរហូតដល់ 20% សម្រាប់ការកម្មង់ថ្ងៃចុងសប្តាហ៍</p>
+          <a href="menu.html" class="btn btn-secondary">កម្មង់ឥឡូវនេះ</a>
+        </div>
+        <div class="promo-card promo-2">
+          <span class="badge" style="background:rgba(255,255,255,0.3); margin-bottom:10px;">COMBO SAVE</span>
+          <h3>🍔 Burger Combo</h3>
+          <p style="margin: 10px 0 20px;">Burger + Fries + Drink ត្រឹមតែ $6.99 ប៉ុណ្ណោះ</p>
+          <a href="menu.html" class="btn btn-primary">កម្មង់ឥឡូវនេះ</a>
+        </div>
+        <div class="promo-card promo-3">
+          <span class="badge" style="background:rgba(255,255,255,0.3); margin-bottom:10px;">FREE SHIPPING</span>
+          <h3>🚚 Free Delivery</h3>
+          <p style="margin: 10px 0 20px;">ដឹកជញ្ជូនឥតគិតថ្លៃសម្រាប់រាល់ការកម្មង់ចាប់ពី $15 ឡើងទៅ</p>
+          <a href="menu.html" class="btn btn-secondary">កម្មង់ឥឡូវនេះ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="hero">
+    <div class="container">
+      <div class="section-title">
+        <h2>អំពី CHAMNAN FOOD</h2>
+        <p style="max-width: 650px; margin: 0 auto;">“CHAMNAN FOOD គឺជាសេវាកម្មកម្មង់ម្ហូបអនឡាញ ដែលផ្តល់ជូនម្ហូបឆ្ងាញ់ៗ មានគុណភាព និងសេវាកម្មដឹកជញ្ជូនរហ័សជូនអតិថិជនជាទីស្រឡាញ់។”</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <h3>1,000+</h3>
+          <p>អតិថិជនពេញចិត្ត</p>
+        </div>
+        <div class="stat-card">
+          <h3>50+</h3>
+          <p>មុខម្ហូបឆ្ងាញ់ៗ</p>
+        </div>
+        <div class="stat-card">
+          <h3>4.9 ⭐</h3>
+          <p>ពិន្ទុវាយតម្លៃ</p>
+        </div>
+        <div class="stat-card">
+          <h3>30 នាទី</h3>
+          <p>ដឹកជញ្ជូនរហ័ស</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" style="padding: 60px 0; background: var(--surface);">
+    <div class="container">
+      <div class="section-title">
+        <h2>ទំនាក់ទំនងមកកាន់ពួកយើង</h2>
+        <p>យើងរង់ចាំបម្រើសេវាកម្មជូនលោកអ្នក ២៤ ម៉ោង</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px;">
+        <div>
+          <h3 style="margin-bottom: 20px;">ពត៌មានលម្អិត</h3>
+          <p style="margin-bottom: 12px;">📞 <strong>ទូរស័ព្ទ:</strong> 093 318 655</p>
+          <p style="margin-bottom: 12px;">📍 <strong>អាសយដ្ឋាន:</strong> រាជធានីភ្នំពេញ, កម្ពុជា</p>
+          <p style="margin-bottom: 12px;">🕐 <strong>ម៉ោងដំណើរការ:</strong> 8:00 AM – 10:00 PM</p>
+          <p style="margin-bottom: 12px;">✈️ <strong>Telegram:</strong> @chamnanfood</p>
+        </div>
+        <form onsubmit="event.preventDefault(); showToast('✅ សាររបស់អ្នកត្រូវបានផ្ញើរួចរាល់!'); this.reset();" style="display:flex; flex-direction:column; gap:15px;">
+          <input type="text" placeholder="ឈ្មោះរបស់អ្នក" required style="padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border);">
+          <input type="tel" placeholder="លេខទូរស័ព្ទ" required style="padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border);">
+          <textarea rows="4" placeholder="សាររបស់អ្នក..." required style="padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border);"></textarea>
+          <button type="submit" class="btn btn-primary">ផ្ញើសារ</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 style="color:var(--primary); margin-bottom:15px;">CHAMNAN FOOD</h3>
+          <p style="color:rgba(255,255,255,0.7);">សេវាកម្មដឹកជញ្ជូនម្ហូបរហ័ស ធានាគុណភាព អនាម័យ និងរសជាតិឆ្ងាញ់ពិតៗជូនលោកអ្នក។</p>
+        </div>
+        <div>
+          <h4>តំណភ្ជាប់</h4>
+          <ul style="margin-top: 15px; display:flex; flex-direction:column; gap:8px;">
+            <li><a href="iNDEX.html">ទំព័រដើម</a></li>
+            <li><a href="menu.html">មុខម្ហូប</a></li>
+            <li><a href="Traking.HTML">តាមដានការកម្មង់</a></li>
+            <li><a href="admin/index.html">Admin Portal</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>ម៉ោងបើកបម្រើ</h4>
+          <p style="color:rgba(255,255,255,0.7); margin-top:15px;">ច័ន្ទ - អាទិត្យ<br>8:00 ព្រឹក - 10:00 យប់</p>
+        </div>
+        <div>
+          <h4>បណ្តាញសង្គម</h4>
+          <p style="color:rgba(255,255,255,0.7); margin-top:15px;">Facebook | Telegram | Instagram | TikTok</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 CHAMNAN FOOD. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-out Cart Drawer -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h3>🛒 កន្ត្រករបស់អ្នក</h3>
+      <button class="cart-close" id="cart-close-btn">&times;</button>
+    </div>
+    <div class="cart-body" id="cart-items-container"></div>
+    <div class="cart-footer">
+      <div class="cart-summary-line">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">$0.00</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Delivery Fee</span>
+        <span>$1.00</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Discount</span>
+        <span>$0.00</span>
+      </div>
+      <div class="cart-summary-line total">
+        <span>Grand Total</span>
+        <span id="cart-grand-total">$0.00</span>
+      </div>
+      <a href="Check.HTML" class="btn btn-primary" style="width: 100%; margin-top: 15px;">បន្តការកម្មង់ (Checkout)</a>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Nav -->
+  <div class="bottom-nav">
+    <a href="index.html" class="active">🏠<span>ទំព័រដើម</span></a>
+    <a href="menu.html">🍔<span>មុខម្ហូប</span></a>
+    <a href="javascript:void(0)" class="open-cart-trigger">🛒<span>កន្ត្រក (<span class="cart-count-badge">0</span>)</span></a>
+    <a href="tracking.html">📦<span>តាមដាន</span></a>
+  </div>
+
+  <script src="Main.js"></script>
+  <script src="card.js"></script>
+</body>
+</html>

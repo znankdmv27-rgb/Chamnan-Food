@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Menu — CHAMNAN FOOD</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo">🍔 CHAMNAN <span>FOOD</span></a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="iNDEX.html" class="nav-link">Home</a></li>
+          <li><a href="menu.html" class="nav-link active">Menu</a></li>
+          <li><a href="index.html#promotions" class="nav-link">Promotions</a></li>
+          <li><a href="Traking.HTML" class="nav-link">Track Order</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="cart-icon-btn open-cart-trigger">🛒 <span class="cart-badge cart-count-badge">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" style="padding: 40px 20px;">
+    <!-- Live Search -->
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="food-search-input" class="search-input" placeholder="ស្វែងរកតាមឈ្មោះ, ប្រភេទម្ហូប...">
+    </div>
+    <div id="search-counter" class="search-counter"></div>
+
+    <!-- Category Filters -->
+    <div class="category-list" style="margin-bottom: 30px;">
+      <button class="cat-btn active" data-category="all">🍽️ All</button>
+      <button class="cat-btn" data-category="burger">🍔 Burger</button>
+      <button class="cat-btn" data-category="pizza">🍕 Pizza</button>
+      <button class="cat-btn" data-category="noodle">🍜 Noodle</button>
+      <button class="cat-btn" data-category="rice">🍚 Rice</button>
+      <button class="cat-btn" data-category="chicken">🍗 Chicken</button>
+      <button class="cat-btn" data-category="drinks">🥤 Drinks</button>
+    </div>
+
+    <!-- Food Grid -->
+    <div id="food-grid" class="food-grid"></div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h3>🛒 កន្ត្រករបស់អ្នក</h3>
+      <button class="cart-close" id="cart-close-btn">&times;</button>
+    </div>
+    <div class="cart-body" id="cart-items-container"></div>
+    <div class="cart-footer">
+      <div class="cart-summary-line">
+        <span>Grand Total</span>
+        <span id="cart-grand-total">$0.00</span>
+      </div>
+      <a href="Check.HTML" class="btn btn-primary" style="width: 100%; margin-top: 15px;">បន្តការកម្មង់ (Checkout)</a>
+    </div>
+  </div>
+
+  <script src="Main.js"></script>
+  <script src="card.js"></script>
+  <script>
+    let activeCategory = "all";
+    let searchQuery = "";
+
+    function toggleFavorite(id) {
+      let favs = JSON.parse(localStorage.getItem("favorites")) || [];
+      if (favs.includes(id)) {
+        favs = favs.filter(favId => favId !== id);
+      } else {
+        favs.push(id);
+      }
+      localStorage.setItem("favorites", JSON.stringify(favs));
+      renderMenu();
+    }
+
+    function renderMenu() {
+      const products = JSON.parse(localStorage.getItem("products")) || [];
+      const favs = JSON.parse(localStorage.getItem("favorites")) || [];
+      const grid = document.getElementById("food-grid");
+      const counterEl = document.getElementById("search-counter");
+
+      const filtered = products.filter(p => {
+        if (!p.available) return false;
+        const matchesCat = (activeCategory === "all" || p.category === activeCategory);
+        const matchesQuery = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                             (p.khName && p.khName.toLowerCase().includes(searchQuery.toLowerCase())) ||
+                             p.category.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCat && matchesQuery;
+      });
+
+      if (counterEl) {
+        if (filtered.length > 0) {
+          counterEl.textContent = `រកឃើញ ${filtered.length} មុខម្ហូប`;
+        } else {
+          counterEl.textContent = `មិនទាន់រកឃើញមុខម្ហូបនេះទេ 😢`;
+        }
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 60px 0; color: var(--text-muted);">
+          <h2>មិនមានម្ហូបដែលលោកអ្នកចង់រកទេ 🔍</h2>
+        </div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => `
+        <div class="food-card">
+          <div class="food-img-container">
+            <img src="${item.image}" alt="${item.name}">
+            <button class="fav-btn ${favs.includes(item.id) ? 'active' : ''}" onclick="toggleFavorite('${item.id}')">
+              ${favs.includes(item.id) ? '❤️' : '🤍'}
+            </button>
+          </div>
+          <div class="food-details">
+            <div class="food-header">
+              <span class="food-title">${item.khName || item.name}</span>
+              <span class="food-rating">⭐ ${item.rating}</span>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--primary); margin-bottom: 4px; font-weight:600; text-transform:uppercase;">${item.category}</div>
+            <p class="food-desc">${item.desc || item.name}</p>
+            <div class="food-footer">
+              <span class="food-price">$${item.price.toFixed(2)}</span>
+              <button class="add-btn" onclick="addToCart('${item.id}')">+</button>
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    // Category button filter handling
+    document.querySelectorAll(".cat-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeCategory = btn.getAttribute("data-category");
+        renderMenu();
+      });
+    });
+
+    // Search input handling
+    document.getElementById("food-search-input").addEventListener("input", (e) => {
+      searchQuery = e.target.value.trim();
+      renderMenu();
+    });
+
+    // Handle deep-link Category Filter Query Params (e.g. menu.html?cat=burger)
+    const urlParams = new URLSearchParams(window.location.search);
+    const catParam = urlParams.get("cat");
+    if (catParam) {
+      activeCategory = catParam;
+      document.querySelectorAll(".cat-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-category") === catParam);
+      });
+    }
+
+    renderMenu();
+  </script>
+</body>
+</html>

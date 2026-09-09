@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — CHAMNAN FOOD</title>
+  <link rel="stylesheet" href="amin.CSS">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-header">CHAMNAN ADMIN</div>
+    <ul class="admin-nav">
+      <li><a href="Dashboak.HTML" class="active">📊 Dashboard</a></li>
+      <li><a href="aminoder.HTML">📦 Orders</a></li>
+      <li><a href="Produck.HTML">🍔 Products</a></li>
+      <li><a href="costom.html">👥 Customers</a></li>
+      <li><a href="setting.html">⚙️ Settings</a></li>
+      <li><a href="iNDEX.html">🚪 Logout</a></li>
+    </ul>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-header">
+      <h1>ទិដ្ឋភាពទូទៅនៃប្រព័ន្ធ (Dashboard)</h1>
+      <span class="badge" style="background:#28a745; color:white;">System Online</span>
+    </div>
+
+    <div class="stats-overview">
+      <div class="admin-stat-card">
+        <p>Total Orders</p>
+        <h2 id="admin-total-orders">0</h2>
+      </div>
+      <div class="admin-stat-card">
+        <p>Pending Orders</p>
+        <h2 id="admin-pending-orders" style="color: var(--warning);">0</h2>
+      </div>
+      <div class="admin-stat-card">
+        <p>Completed Orders</p>
+        <h2 id="admin-completed-orders" style="color: var(--success);">0</h2>
+      </div>
+      <div class="admin-stat-card">
+        <p>Total Revenue</p>
+        <h2 id="admin-total-revenue" style="color: var(--primary);">$0.00</h2>
+      </div>
+    </div>
+
+    <!-- Sales Canvas Graph -->
+    <div class="admin-table-container" style="margin-bottom: 30px;">
+      <h3 style="margin-bottom: 15px;">ក្រាហ្វិកចំណូលប្រចាំសប្តាហ៍ (Weekly Sales Chart)</h3>
+      <canvas id="salesChart" width="800" height="200" style="width: 100%; height: 200px;"></canvas>
+    </div>
+  </main>
+
+  <script src="Main.js"></script>
+  <script src="card.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed — CHAMNAN FOOD</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+  <div class="container" style="max-width: 600px; padding: 60px 20px; text-align: center;">
+    <div style="font-size: 4rem;">🎉</div>
+    <h1 style="color: var(--primary); margin: 15px 0;">ការកម្មង់របស់អ្នកបានជោគជ័យ!</h1>
+    <p style="color: var(--text-muted); margin-bottom: 30px;">អរគុណសម្រាប់ការជឿទុកចិត្តលើ CHAMNAN FOOD។ យើងកំពុងរៀបចំម្ហូបជូនអ្នក។</p>
+
+    <div id="order-details-box" style="background: white; text-align: left; padding: 25px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin-bottom: 30px; border: 1px solid var(--border);">
+      <!-- Dynamic Order Render -->
+    </div>
+
+    <div style="display: flex; gap: 15px; justify-content: center;">
+      <a id="track-btn" href="#" class="btn btn-primary">មើល Order & តាមដាន</a>
+      <a href="menu.html" class="btn btn-outline">ត្រឡប់ទៅ Menu</a>
+    </div>
+  </div>
+
+  <script src="Main.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const orderId = urlParams.get("orderId");
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+    const order = orders.find(o => o.orderId === orderId);
+
+    const box = document.getElementById("order-details-box");
+    const trackBtn = document.getElementById("track-btn");
+
+    if (order && box) {
+      trackBtn.href = `tracking.html?orderId=${order.orderId}`;
+      box.innerHTML = `
+        <p style="margin-bottom: 8px;"><strong>លេខកូដ Order:</strong> <span style="color:var(--primary); font-weight:700;">#${order.orderId}</span></p>
+        <p style="margin-bottom: 8px;"><strong>អតិថិជន:</strong> ${order.customerName}</p>
+        <p style="margin-bottom: 8px;"><strong>លេខទូរស័ព្ទ:</strong> ${order.phone}</p>
+        <p style="margin-bottom: 8px;"><strong>អាសយដ្ឋាន:</strong> ${order.address || 'Pick Up'}</p>
+        <p style="margin-bottom: 8px;"><strong>ការទូទាត់:</strong> ${order.paymentMethod}</p>
+        <p style="margin-bottom: 8px;"><strong>ស្ថានភាពបច្ចុប្បន្ន:</strong> <span class="badge" style="background:#ffeeba; color:#856404;">${order.status}</span></p>
+        <div style="border-top: 1px dashed var(--border); margin-top: 12px; padding-top: 12px;">
+          <strong>ម្ហូបដែលបានកម្មង់:</strong>
+          <ul style="margin: 8px 0 12px 20px; list-style: disc;">
+            ${order.items.map(i => `<li>${i.khName || i.name} x ${i.quantity} ($${(i.price * i.quantity).toFixed(2)})</li>`).join("")}
+          </ul>
+          <p style="font-size: 1.15rem; font-weight: 700;">សរុប: <span style="color:var(--primary);">$${order.total.toFixed(2)}</span></p>
+        </div>
+      `;
+    } else {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

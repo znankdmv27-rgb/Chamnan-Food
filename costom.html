@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Management — CHAMNAN FOOD</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="amin.CSS">
+</head>
+<body class="admin-body">
+
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-header">CHAMNAN ADMIN</div>
+    <ul class="admin-nav">
+      <li><a href="Dashboak.HTML">📊 Dashboard</a></li>
+      <li><a href="amin.HTML">📦 Orders</a></li>
+      <li><a href="Produck.HTML">🍔 Products</a></li>
+      <li><a href="costom.html" class="active">👥 Customers</a></li>
+      <li><a href="setting.html">⚙️ Settings</a></li>
+      <li><a href="iNDEX.html">🚪 Logout</a></li>
+    </ul>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-header">
+      <h1>បញ្ជីអតិថិជន (Customers)</h1>
+    </div>
+
+    <div class="admin-table-container">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ឈ្មោះ (Name)</th>
+            <th>ទូរស័ព្ទ (Phone)</th>
+            <th>អាសយដ្ឋាន (Address)</th>
+            <th>ការកម្មង់សរុប (Orders)</th>
+            <th>ចំណាយសរុប (Total Spent)</th>
+          </tr>
+        </thead>
+        <tbody id="admin-customers-table-body"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="Main.js"></script>
+  <script src="amin.js"></script>
+</body>
+</html>

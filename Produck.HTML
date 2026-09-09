@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Management — CHAMNAN FOOD</title>
+  <link rel="stylesheet" href="amin.CSS">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-header">CHAMNAN ADMIN</div>
+    <ul class="admin-nav">
+      <li><a href="Dashboak.HTML">📊 Dashboard</a></li>
+      <li><a href="aminoder.HTML">📦 Orders</a></li>
+      <li><a href="Produck.HTML" class="active">🍔 Products</a></li>
+      <li><a href="costom.html">👥 Customers</a></li>
+      <li><a href="setting.html">⚙️ Settings</a></li>
+      <li><a href="iNDEX.html">🚪 Logout</a></li>
+    </ul>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-header">
+      <h1>ការគ្រប់គ្រងមុខម្ហូប (Products)</h1>
+    </div>
+
+    <!-- Add Product Modal/Form -->
+    <div class="admin-table-container" style="margin-bottom: 25px;">
+      <h3>បន្ថែមមុខម្ហូបថ្មី (Add New Product)</h3>
+      <form onsubmit="handleAddProduct(event)" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
+        <input type="text" id="prod-name" placeholder="English Name" required style="padding:10px; border:1px solid var(--border); border-radius:4px;">
+        <input type="text" id="prod-kh-name" placeholder="Khmer Name (ឈ្មោះខ្មែរ)" required style="padding:10px; border:1px solid var(--border); border-radius:4px;">
+        <select id="prod-cat" required style="padding:10px; border:1px solid var(--border); border-radius:4px;">
+          <option value="burger">Burger</option>
+          <option value="pizza">Pizza</option>
+          <option value="noodle">Noodle</option>
+          <option value="rice">Rice</option>
+          <option value="chicken">Chicken</option>
+          <option value="drinks">Drinks</option>
+        </select>
+        <input type="number" step="0.01" id="prod-price" placeholder="Price ($)" required style="padding:10px; border:1px solid var(--border); border-radius:4px;">
+        <input type="url" id="prod-img" placeholder="Image URL" style="padding:10px; border:1px solid var(--border); border-radius:4px;">
+        <input type="text" id="prod-desc" placeholder="Khmer Description" style="padding:10px; border:1px solid var(--border); border-radius:4px;">
+        <button type="submit" class="btn btn-primary" style="grid-column: 1/-1; border-radius: var(--radius-sm);">+ រក្សាទុកមុខម្ហូប</button>
+      </form>
+    </div>
+
+    <!-- Product Grid Table -->
+    <div class="admin-table-container">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="admin-products-table-body"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="Main.js"></script>
+  <script src="amin.js"></script>
+</body>
+</html>
